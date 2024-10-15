@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Members</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Members List</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Member ID</th>
+                    <th>Member First Name</th>
+                    <th>Member Last Name</th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                <tr>
+                    <td>{{ member.id }}</td>
+                    <td>{{ member.FirstName }}</td>
+                    <td>{{ member.LastName }}</td>
+                    <td>{{ member.id }}</td>
+                    <td>
+                        <!-- <button style="color: green;">Update</button>
+                        <button style="color: red;">Delete</button> -->
+
+                        <button class="btn btn-warning">
+                            <a href="{% url 'update' member.id %}" style="color: white; text-decoration: none;background-color: green;">Update</a>
+                        </button>&nbsp;&nbsp;                        
+                                               
+                        <button class="btn btn-warning">
+                            <a href="{% url 'delete' member.id %}" style="color: white; text-decoration: none; background-color: red;">delete</a>
+                        </button>&nbsp;&nbsp;                       </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
